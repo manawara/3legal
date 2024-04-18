@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  align-items: center;
+  & li {
+    margin-right: 1.6rem;
+
+    height: 2.4rem;
+  }
+  & .profile-icons {
+    display: flex;
+    align-items: center;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: var(--primary-color);
+      border-radius: 100%;
+      margin-left: 1rem;
+      color: var(--gray-color-4);
+    }
+  }
+}

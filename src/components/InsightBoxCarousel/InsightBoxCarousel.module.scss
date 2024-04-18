@@ -1,0 +1,32 @@
+.insightBoxCarousel {
+  display: flex;
+  overflow-x: scroll;
+  max-width: 1120px;
+  margin: 3rem auto;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  &::-webkit-scrollbar {
+    background-color: var(--gray-color-2);
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 3rem;
+    h5 {
+      font-size: 34px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      max-width: 13rem;
+      line-height: 1.1;
+    }
+    a {
+      place-self: flex-end;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.dots {
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  li {
+    margin: 0.5rem;
+  }
+
+  span {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--gray-color-4);
+    border-radius: 50%;
+    transition: scale 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

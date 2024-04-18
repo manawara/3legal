@@ -1,0 +1,32 @@
+.button {
+  padding: 1.6rem 2.6rem;
+  background-color: var(--primary-color);
+  color: var(--gray-color-4);
+  border: none;
+  width: 100%;
+  border-radius: 0.3rem;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease-out;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--tertiary-color);
+  }
+
+  &-underline {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #000000;
+    text-transform: capitalize;
+    font-weight: 500;
+    place-self: flex-start;
+
+    svg {
+      margin-left: 5px;
+      width: 22px;
+    }
+    &:hover svg {
+      transform: translateX(5px);
+    }
+  }
+}

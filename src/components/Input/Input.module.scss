@@ -1,0 +1,17 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  input {
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--gray-color-1);
+    font-size: 1.6rem;
+    font-weight: 400;
+    &::placeholder {
+      color: var(--gray-color-1);
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+  }
+}

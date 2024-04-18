@@ -1,0 +1,62 @@
+.insight-box {
+  min-width: 231px;
+  background-color: var(--gray-color-3);
+  margin: 0 2rem 3rem 0;
+  @media screen and (min-width: 1024px) {
+    min-width: 262px;
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.4rem;
+  }
+  img {
+    mix-blend-mode: multiply;
+  }
+  &-discount,
+  &-sale {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    background-color: var(--gray-color-4);
+    padding: 4px 12px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+  &-sale {
+    margin-top: 8px;
+    background-color: var(--green-color-1);
+    color: var(--gray-color-4);
+  }
+  &-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-color-4);
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 100%;
+    box-shadow: 3px 3px 10px 3px var(--gray-color-2);
+  }
+  &-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+  }
+  &-footer {
+    padding: 1rem 0;
+    background-color: var(--gray-color-4);
+  }
+  &-star {
+    margin: 1rem 0;
+  }
+  &-description {
+    margin: 0.5rem 0;
+  }
+  &-priceWrapper {
+    display: flex;
+  }
+  &-priceOld {
+    text-decoration: line-through;
+    color: var(--gray-color-1);
+    margin-left: 1rem;
+  }
+}

@@ -1,0 +1,21 @@
+.navlist {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+  & li:not(:last-child) {
+    margin-right: 4rem;
+  }
+  li {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    a {
+      color: var(--gray-color-1);
+    }
+    .active {
+      color: var(--secondary-color);
+      border-bottom: 1px solid var(--secondary-color);
+      font-weight: 500;
+    }
+  }
+}
