@@ -17,8 +17,7 @@ const InsightBox = ({ data }) => {
           <IconHeart />
         </div>
       </div>
-
-      <img src={sofa} alt="sofa" />
+      <img src={`http://localhost:1337${data.image.data.attributes.url}`} alt={data.image.name} />
 
       <div className={styles['insight-box-button']}>
         <Button>Add to cart</Button>

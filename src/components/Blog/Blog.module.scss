@@ -1,0 +1,20 @@
+.blog {
+  max-width: 1120px;
+  margin: 40px auto;
+
+  &-title {
+    font-size: 34px;
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &-content {
+    display: grid;
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+}

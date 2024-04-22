@@ -29,4 +29,8 @@
       place-self: flex-end;
     }
   }
+  &-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
 }

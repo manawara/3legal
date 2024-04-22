@@ -1,0 +1,19 @@
+.about-item {
+  background-color: var(--gray-color-3);
+  width: 100%;
+  padding: 3.2rem 1.6rem;
+
+  img {
+    height: 4.8rem;
+    width: 4.8rem;
+  }
+  &-title {
+    margin: 1.6rem 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  &-description {
+    color: var(--gray-color-1);
+    line-height: 1.4;
+  }
+}

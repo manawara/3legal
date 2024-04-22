@@ -1,0 +1,13 @@
+.blog-item {
+  margin-bottom: 2.4rem;
+  img {
+    object-fit: cover;
+    min-height: 283px;
+  }
+
+  &-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 1.6rem 0;
+  }
+}

@@ -1,37 +1,17 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
+import { useParams } from 'react-router-dom'
 import styles from './Carousel.module.scss'
-import image1 from '../../assets/image1.jpg'
-import image2 from '../../assets/living_room.jpeg'
-import image3 from '../../assets/living_room_3.jpeg'
-import image4 from '../../assets/bedroom.jpeg'
 import { ReactComponent as ArrowLeft } from '../../assets/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../../assets/arrow-right.svg'
 import Dots from './Dots'
 
-const data = [
-  {
-    id: 1,
-    image: image1,
-  },
-  {
-    id: 2,
-    image: image2,
-  },
-  {
-    id: 13,
-    image: image3,
-  },
-  {
-    id: 1,
-    image: image4,
-  },
-]
-
-const Carousel = ({ options }) => {
+const Carousel = ({ options, data }) => {
   const [slide, setSlide] = useState({
     transform: 0,
     index: 0,
   })
+  const url = 'http://localhost:1337'
+
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const carouselRef = useRef()
@@ -46,7 +26,7 @@ const Carousel = ({ options }) => {
           }
         })
       : setSlide({ transform: 0, index: 0 })
-  }, [slide.index])
+  }, [slide.index, data.length])
   const handleClickPrev = () => {
     slide.index > 0
       ? setSlide((prev) => {
@@ -155,15 +135,18 @@ const Carousel = ({ options }) => {
         onTouchMove={handleMouseMoving}
         onTouchCancel={() => setIsDragging(false)}
       >
-        {data.map((slide) => (
-          <div
-            key={slide.image}
-            alt=""
-            style={{
-              backgroundImage: `url(${slide.image})`,
-            }}
-          ></div>
-        ))}
+        {data.map((item) => {
+          const slide = item.attributes.image.data
+          return (
+            <div
+              key={slide.id}
+              alt=""
+              style={{
+                backgroundImage: `url(${url}${slide.attributes.url})`,
+              }}
+            ></div>
+          )
+        })}
       </div>
       {arrows && (
         <>
