@@ -7,6 +7,7 @@ import InsightBoxCarousel from '../../components/InsightBoxCarousel/InsightBoxCa
 import BannerImageAndText from '../../components/BannerImageAndText/BannerImageAndText'
 import AboutCompany from '../../components/AboutCompany/AboutCompany'
 import Blog from '../../components/Blog/Blog'
+import Newsletter from '../../components/Newsletter/Newsletter'
 import livingRoomImage from '../../assets/living_room.jpeg'
 const HomePage = () => {
   const { slides, products } = useLoaderData()
@@ -49,6 +50,7 @@ const HomePage = () => {
         image={livingRoomImage}
       />
       <Blog title="Articles" />
+      <Newsletter />
     </div>
   )
 }

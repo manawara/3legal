@@ -1,3 +1,85 @@
-.newstletter {
-  padding: 9.5rem;
+.newsletter {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 9.5rem 0;
+  text-align: center;
+  background-color: var(--gray-color-3);
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow: hidden;
+  @media screen and (min-width: 1024px) {
+    &::before {
+      position: absolute;
+      top: -35%;
+      left: -15%;
+      background-image: url('../../assets/commode_2.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 500px;
+      height: 550px;
+      content: '';
+      display: block;
+      mix-blend-mode: multiply;
+    }
+    &::after {
+      position: absolute;
+      top: -10%;
+      right: -17%;
+      background-image: url('../../assets/chair_2.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 500px;
+      height: 500px;
+      content: '';
+      display: block;
+      mix-blend-mode: multiply;
+    }
+  }
+  form {
+    margin: 0 auto;
+    max-width: 400px;
+    @media screen and (min-width: 1120px) {
+      max-width: 500px;
+    }
+  }
+  &-title {
+    font-size: 28px;
+    text-transform: capitalize;
+  }
+  &-content {
+    display: flex;
+    border-bottom: 1px solid var(--gray-color-1);
+    max-width: 311px;
+    margin: 0 auto;
+    justify-content: space-between;
+    @media screen and (min-width: 1120px) {
+      max-width: 400px;
+    }
+
+    & label {
+      margin: 1rem 0 2rem;
+    }
+    & button {
+      background-color: transparent;
+      border: 0;
+      text-transform: capitalize;
+      font-size: 16px;
+      color: var(--gray-color-1);
+    }
+  }
+
+  &-input {
+    background-image: url('../../assets/email.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    border: 0;
+    background-color: transparent;
+    padding: 2rem 1rem 1.5rem 3rem;
+    color: var(--gray-color-1);
+    font-size: 16px;
+  }
+  &-description {
+    margin: 1.5rem 0;
+  }
 }
