@@ -3,6 +3,9 @@
   @media screen and (min-width: 768px) {
     display: flex;
   }
+  &-active {
+    display: flex;
+  }
   & li:not(:last-child) {
     margin-right: 4rem;
   }

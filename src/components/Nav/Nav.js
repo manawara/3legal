@@ -2,10 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
-const Nav = () => {
+const Nav = ({ isActive }) => {
   return (
     <nav>
-      <ul className={styles.navlist}>
+      <ul className={isActive ? styles['navlist-active'] : styles.navlist}>
         <li>
           <NavLink to=".." className={({ isActive }) => (isActive ? styles.active : '')}>
             home
