@@ -24,8 +24,8 @@ const InsightBox = ({ data }) => {
       </div>
       <div className={styles['insight-box-footer']}>
         <div className={'insight-box-star'}>
-          {[...Array(data.stars)].map((_item, _index) => {
-            return <Star />
+          {[...Array(data.stars)].map((_item, index) => {
+            return <Star key={index} />
           })}
         </div>
         <p className={styles['insight-box-description']}>{data.name}</p>

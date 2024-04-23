@@ -13,7 +13,7 @@ const InsightBoxCarousel = ({ title, linkTo, products }) => {
 
       <div className={styles.insightBoxCarousel}>
         {products.map(({ attributes: product }) => {
-          return <InsightBox data={product} />
+          return <InsightBox data={product} key={product.uid} />
         })}
       </div>
     </div>
