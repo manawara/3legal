@@ -2,9 +2,9 @@ import React from 'react'
 import { ButtonUnderLine } from '../Button/Button'
 import BlogItem from '../Blog/BlogItem'
 import styles from './Blog.module.scss'
-import imageBlog from '../../assets/living_room_3.jpeg'
 
-const Blog = ({ title }) => {
+const Blog = ({ title, data: articles }) => {
+  console.log(articles)
   return (
     <section className={styles.blog}>
       <div className={styles['blog-header']}>
@@ -13,9 +13,15 @@ const Blog = ({ title }) => {
       </div>
 
       <div className={styles['blog-content']}>
-        <BlogItem title="7 ways to decor your home" image={imageBlog} />
-        <BlogItem title="7 ways to decor your home" image={imageBlog} />
-        <BlogItem title="7 ways to decor your home" image={imageBlog} />
+        {articles.data &&
+          articles.data.map(({ attributes: item }) => (
+            <BlogItem
+              key={item.articleID}
+              title={item.name}
+              image={`http://localhost:1337${item.image.data.attributes.url}`}
+              alt={item.name}
+            />
+          ))}
       </div>
     </section>
   )

@@ -10,8 +10,8 @@ import Blog from '../../components/Blog/Blog'
 import Newsletter from '../../components/Newsletter/Newsletter'
 import livingRoomImage from '../../assets/living_room.jpeg'
 const HomePage = () => {
-  const { slides, products } = useLoaderData()
-  console.log(products)
+  const { slides, products, articles } = useLoaderData()
+
   return (
     <div className={styles.wrapper}>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
@@ -49,7 +49,10 @@ const HomePage = () => {
         description="It’s more affordable than ever to give every room in your home a stylish makeover"
         image={livingRoomImage}
       />
-      <Blog title="Articles" />
+      <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
+        <Await resolve={articles}>{(lodadedArticles) => <Blog title="Articles" data={lodadedArticles} />}</Await>
+      </Suspense>
+
       <Newsletter />
     </div>
   )
@@ -74,11 +77,20 @@ const loadedProducts = async () => {
   }
 }
 
+const lodadedArticles = async () => {
+  const response = await fetch('http://localhost:1337/api/article?sort[0]=id:desc&pagination[limit]=3&populate=*')
+  if (!response.ok) {
+    throw json({ message: 'Could not fetch articles!' }, { status: 500 })
+  }
+  const resData = response.json()
+  return resData
+}
+
 export const loader = async ({ request, params }) => {
-  console.log(loadedSlider())
   return defer({
     slides: await loadedSlider(),
     products: await loadedProducts(),
+    articles: lodadedArticles(),
   })
 }
 
