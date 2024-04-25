@@ -19,7 +19,7 @@ const Blog = ({ title, data: articles }) => {
               key={item.articleID}
               title={item.name}
               image={`http://localhost:1337${item.image.data.attributes.url}`}
-              alt={item.name}
+              alt={item.image.data.attributes.alternativeText}
             />
           ))}
       </div>

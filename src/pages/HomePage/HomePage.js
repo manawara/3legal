@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { json, defer, useLoaderData, Await } from 'react-router-dom'
+import { json, defer, useLoaderData, Await, redirect } from 'react-router-dom'
 import Carousel from '../../components/Carousel/Carousel'
 import styles from './HomePage.module.scss'
 import PromoCategory from '../../components/PromoCategory/PromoCategory'
@@ -9,9 +9,12 @@ import AboutCompany from '../../components/AboutCompany/AboutCompany'
 import Blog from '../../components/Blog/Blog'
 import Newsletter from '../../components/Newsletter/Newsletter'
 import livingRoomImage from '../../assets/living_room.jpeg'
+import { useCartContext } from '../../store/CartContext'
+
 const HomePage = () => {
   const { slides, products, articles } = useLoaderData()
-
+  const ctx = useCartContext()
+  console.log(ctx)
   return (
     <div className={styles.wrapper}>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
@@ -92,6 +95,32 @@ export const loader = async ({ request, params }) => {
     products: await loadedProducts(),
     articles: lodadedArticles(),
   })
+}
+
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const email = formData.get('email')
+  const errors = {}
+  if (typeof email !== 'string' || !email.includes('@')) {
+    errors.email = "That doesn't look like an email address"
+  }
+
+  if (Object.keys(errors).length) {
+    return errors
+  }
+
+  const response = await fetch('http://localhost:1337/api/newsletters', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ data: { email } }),
+  })
+  if (!response.ok) {
+    throw json({ message: 'Could not add newsletter. Try again' }, { status: 500 })
+  }
+
+  return { message: 'Thanks! You joined to newsletters successful!' }
 }
 
 export default HomePage
