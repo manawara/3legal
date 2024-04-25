@@ -66,6 +66,7 @@
       text-transform: capitalize;
       font-size: 16px;
       color: var(--gray-color-1);
+      cursor: pointer;
     }
   }
 
@@ -81,5 +82,9 @@
   }
   &-description {
     margin: 1.5rem 0;
+  }
+  &-error {
+    margin-top: 1rem;
+    color: var(--red-color-1);
   }
 }
