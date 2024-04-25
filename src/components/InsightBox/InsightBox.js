@@ -1,10 +1,15 @@
 import React from 'react'
 import { ReactComponent as IconHeart } from '../../assets/heart.svg'
 import { ReactComponent as Star } from '../../assets/StarFill.svg'
-import sofa from '../../assets/sofa.jpg'
 import Button from '../Button/Button'
 import styles from './InsightBox.module.scss'
+import { useCartContext } from '../../store/CartContext'
+import useModal from '../../hooks/useModal'
+import Modal from '../Modal/Modal'
+import imageConfirm from '../../assets/confirm.svg'
 const InsightBox = ({ data }) => {
+  const ctx = useCartContext()
+  const { open, toogleOpen } = useModal(1000)
   return (
     <div className={styles['insight-box']}>
       <div className={styles['insight-box-header']}>
@@ -20,7 +25,14 @@ const InsightBox = ({ data }) => {
       <img src={`http://localhost:1337${data.image.data.attributes.url}`} alt={data.image.name} />
 
       <div className={styles['insight-box-button']}>
-        <Button>Add to cart</Button>
+        <Button
+          onAction={() => {
+            ctx.addItem(data)
+            toogleOpen()
+          }}
+        >
+          Add to cart
+        </Button>
       </div>
       <div className={styles['insight-box-footer']}>
         <div className={'insight-box-star'}>
@@ -34,6 +46,13 @@ const InsightBox = ({ data }) => {
           <span className={styles['insight-box-priceOld']}>{data.priceOld && '$' + data.priceOld}</span>
         </div>
       </div>
+      {open && (
+        <Modal open={open}>
+          <div className={styles['insight-box-modal']}>
+            The product has been added <img src={imageConfirm} alt="icon confirm" />
+          </div>
+        </Modal>
+      )}
     </div>
   )
 }

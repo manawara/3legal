@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { json, defer, useLoaderData, Await, redirect } from 'react-router-dom'
+import { json, defer, useLoaderData, Await } from 'react-router-dom'
 import Carousel from '../../components/Carousel/Carousel'
 import styles from './HomePage.module.scss'
 import PromoCategory from '../../components/PromoCategory/PromoCategory'

@@ -8,7 +8,6 @@ const Newsletter = () => {
   const data = useActionData()
   const { open, toogleOpen } = useModal(2000)
   const navigation = useNavigation()
-  console.log(data && data.message && data.message)
   useEffect(() => {
     if (navigation.state === 'idle' && data && data.message) {
       toogleOpen()

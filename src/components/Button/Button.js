@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as ArrowRight } from '../../assets/arrow-right.svg'
 import styles from './Button.module.scss'
 
-const Button = ({ type, children }) => {
+const Button = ({ type, children, onAction }) => {
   return (
-    <button type={type} className={styles.button}>
+    <button type={type} onClick={onAction} className={styles.button}>
       {children}
     </button>
   )
