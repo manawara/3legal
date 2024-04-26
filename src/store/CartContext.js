@@ -13,7 +13,6 @@ const cartReducer = (state, action) => {
       const item = action.data
       let updateItems = [...state.items]
       const findIndex = updateItems.findIndex((el) => el.uid === item.uid)
-      console.log(findIndex)
       if (findIndex === -1) {
         item.count = 1
         updateItems.push(item)
@@ -47,7 +46,6 @@ export const CartContexProvider = ({ children }) => {
     items: cart.items,
     addItem,
   }
-  console.log(cart)
   return <CartContext.Provider value={cartItem}>{children}</CartContext.Provider>
 }
 

@@ -4,7 +4,6 @@ import BlogItem from '../Blog/BlogItem'
 import styles from './Blog.module.scss'
 
 const Blog = ({ title, data: articles }) => {
-  console.log(articles)
   return (
     <section className={styles.blog}>
       <div className={styles['blog-header']}>

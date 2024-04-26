@@ -13,8 +13,7 @@ import { useCartContext } from '../../store/CartContext'
 
 const HomePage = () => {
   const { slides, products, articles } = useLoaderData()
-  const ctx = useCartContext()
-  console.log(ctx)
+
   return (
     <div className={styles.wrapper}>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
