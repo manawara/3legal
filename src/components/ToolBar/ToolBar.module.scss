@@ -1,0 +1,18 @@
+.toolbar {
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--gray-color-4);
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  margin-right: 4px;
+  img {
+    width: 2.6rem;
+    height: 2rem;
+  }
+  &:focus {
+    background-color: var(--gray-color-2);
+  }
+}

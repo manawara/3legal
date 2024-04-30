@@ -7,7 +7,7 @@ import { useCartContext } from '../../store/CartContext'
 import useModal from '../../hooks/useModal'
 import Modal from '../Modal/Modal'
 import imageConfirm from '../../assets/confirm.svg'
-const InsightBox = ({ data }) => {
+const InsightBox = ({ data, isButton }) => {
   const ctx = useCartContext()
   const { open, toogleOpen } = useModal(1000)
   return (
@@ -25,14 +25,16 @@ const InsightBox = ({ data }) => {
       <img src={`http://localhost:1337${data.image.data.attributes.url}`} alt={data.image.name} />
 
       <div className={styles['insight-box-button']}>
-        <Button
-          onAction={() => {
-            ctx.addItem(data)
-            toogleOpen()
-          }}
-        >
-          Add to cart
-        </Button>
+        {!isButton && (
+          <Button
+            onAction={() => {
+              ctx.addItem(data)
+              toogleOpen()
+            }}
+          >
+            Add to cart
+          </Button>
+        )}
       </div>
       <div className={styles['insight-box-footer']}>
         <div className={'insight-box-star'}>

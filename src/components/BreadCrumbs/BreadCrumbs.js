@@ -10,14 +10,12 @@ const BreadCrumbs = () => {
   return (
     <div className={styles.breadCrumb}>
       {breadCrumb.map((pathElement, index) => (
-        <>
-          <Link key={Math.random().toString(16).slice(2)} to={pathElement.path}>
-            {pathElement.name}
-          </Link>
+        <span key={Math.random().toString(16).slice(2)}>
+          <Link to={pathElement.path}>{pathElement.name}</Link>
           {index !== breadCrumb.length - 1 && (
             <img src={arrowRight} alt="Arrow right" className={styles['breadCrumb-arrow']} />
           )}
-        </>
+        </span>
       ))}
     </div>
   )

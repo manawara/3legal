@@ -1,0 +1,21 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-size: 1.6rem;
+    color: var(--gray-color-1);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  select {
+    max-width: 261px;
+    padding: 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--gray-color-1);
+  }
+  option {
+    color: var(--primary-color);
+    background-color: var(--gray-color-1);
+  }
+}

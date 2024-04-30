@@ -1,0 +1,19 @@
+.shop {
+  max-width: 1120px;
+  margin: 0 auto;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.2rem;
+    &-category {
+      display: flex;
+      select {
+        margin-right: 2rem;
+      }
+    }
+  }
+  &-toolbar {
+    display: flex;
+    align-self: end;
+  }
+}

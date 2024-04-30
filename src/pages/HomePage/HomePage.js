@@ -9,7 +9,6 @@ import AboutCompany from '../../components/AboutCompany/AboutCompany'
 import Blog from '../../components/Blog/Blog'
 import Newsletter from '../../components/Newsletter/Newsletter'
 import livingRoomImage from '../../assets/living_room.jpeg'
-import { useCartContext } from '../../store/CartContext'
 
 const HomePage = () => {
   const { slides, products, articles } = useLoaderData()
@@ -95,7 +94,6 @@ export const loader = async ({ request, params }) => {
     articles: lodadedArticles(),
   })
 }
-
 export const action = async ({ request }) => {
   const formData = await request.formData()
   const email = formData.get('email')
@@ -121,5 +119,4 @@ export const action = async ({ request }) => {
 
   return { message: 'Thanks! You joined to newsletters successful!' }
 }
-
 export default HomePage
