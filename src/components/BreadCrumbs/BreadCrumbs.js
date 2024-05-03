@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './BreadCrumbs.module.scss'
 import { Link, useLocation } from 'react-router-dom'
-import { setLinksToBreadCrumb } from '../../utilis/utilis'
+import { setLinksToBreadCrumb } from '../../utils/utils'
 import arrowRight from '../../assets/chevron-right.svg'
 const BreadCrumbs = () => {
   const location = useLocation()

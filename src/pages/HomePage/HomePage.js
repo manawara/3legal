@@ -119,4 +119,14 @@ export const action = async ({ request }) => {
 
   return { message: 'Thanks! You joined to newsletters successful!' }
 }
+
+export async function actionForm({ request, params }) {
+  try {
+    const method = request.method
+    const data = await request.formData()
+    console.log(data, method)
+  } catch (e) {}
+
+  return null
+}
 export default HomePage

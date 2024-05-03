@@ -5,6 +5,8 @@ import Articles from './pages/Articles/Articles'
 import ArticleDetail from './pages/ArticleDetail/ArticleDetail'
 import Shop, { loader as loaderShopPage } from './pages/Shop/Shop'
 import { action as newsLetterAction } from './pages/HomePage/HomePage'
+import AuthPage, { action as actionAuth } from './pages/AuthPage/AuthPage'
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -16,6 +18,12 @@ export const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
         loader: loaderHomePage,
+      },
+
+      {
+        path: 'auth',
+        element: <AuthPage />,
+        action: actionAuth,
       },
       {
         path: 'articles',

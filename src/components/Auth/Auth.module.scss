@@ -1,0 +1,54 @@
+.form {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1120px;
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+  }
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--gray-color-2);
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  img {
+    max-width: 340px;
+    mix-blend-mode: multiply;
+  }
+
+  h3 {
+    font-size: 40px;
+    margin: 2rem 0;
+  }
+  p {
+    color: var(--gray-color-1);
+    a {
+      color: var(--green-color-1);
+      font-weight: 500;
+    }
+  }
+  &-form {
+    margin: 1rem 0;
+  }
+
+  input {
+    padding: 2rem 1rem;
+  }
+
+  &-form-content {
+    margin-bottom: 4rem;
+  }
+  &-right {
+    padding: 3rem;
+    align-content: center;
+  }
+}
