@@ -1,0 +1,11 @@
+.cart {
+  border: 1px solid var(--gray-color-1);
+  border-radius: 6px;
+  padding: 2.6rem;
+  align-self: start;
+  &-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+}

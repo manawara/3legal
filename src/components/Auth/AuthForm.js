@@ -15,9 +15,16 @@ const AuthForm = ({ method }) => {
         <InputUnderBottom placeholder="Email address" type="email" name="email" id="email" required />
         <InputUnderBottom placeholder="Password" type="password" name="password" id="password" required />
         {!isLogin && (
-          <Checkbox>
+          <Checkbox type="checkbox" name="policy" id="policy" required>
             <div>
-              I agree with <Link to="/">Privacy Policy</Link> and <Link to="/">Terms of Use</Link>
+              I agree with{' '}
+              <Link to="/" target="_blank">
+                <strong>Privacy Policy</strong>
+              </Link>{' '}
+              and{' '}
+              <Link to="/" target="_blank">
+                <strong>Terms of Use</strong>
+              </Link>
             </div>
           </Checkbox>
         )}

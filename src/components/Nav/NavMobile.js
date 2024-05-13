@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink, useSubmit } from 'react-router-dom'
 import styles from './NavMobile.module.scss'
 import Hamburger from 'hamburger-react'
 import Input from '../Input/Input'
@@ -7,7 +7,11 @@ import Button from '../Button/Button'
 import { ReactComponent as Shop } from '../../assets/shopping.svg'
 import { ReactComponent as Heart } from '../../assets/heart.svg'
 import SocialIcon from '../SocialIcon/SocialIcon'
+import { useCartContext } from '../../store/CartContext'
 const NavMobile = ({ isOpen, onOpen }) => {
+  let submit = useSubmit()
+  const ctx = useCartContext()
+  const user = localStorage.getItem('user')
   let classes = isOpen
     ? { transform: 'translateX(0%)', transition: 'all 0.3s ease-out' }
     : { transform: 'translateX(-100%)', transition: 'all 0.3s 0.3s ease-out' }
@@ -46,10 +50,12 @@ const NavMobile = ({ isOpen, onOpen }) => {
       <div className={styles['nav-mobile-footer']}>
         <div className={styles['nav-mobile-item--footer']}>
           <span>Cart</span>
-          <div>
-            <Shop />
-            <span>2</span>
-          </div>
+          <Link to="/shopping-cart">
+            <div>
+              <Shop />
+              <span>{ctx.items.length}</span>
+            </div>
+          </Link>
         </div>
         <div className={styles['nav-mobile-item--footer']}>
           <span>Wishlist</span>
@@ -58,7 +64,23 @@ const NavMobile = ({ isOpen, onOpen }) => {
             <span>2</span>
           </div>
         </div>
-        <Button>Sign in</Button>
+        {user ? (
+          <Button
+            onAction={() =>
+              submit(null, {
+                method: 'post',
+                action: '/logout',
+              })
+            }
+          >
+            Logout
+          </Button>
+        ) : (
+          <Link to="auth?mode=login">
+            <Button>Sign in</Button>
+          </Link>
+        )}
+
         <SocialIcon />
       </div>
     </nav>

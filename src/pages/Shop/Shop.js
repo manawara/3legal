@@ -6,13 +6,13 @@ import ToolBar from '../../components/ToolBar/ToolBar'
 import Newsletter from '../../components/Newsletter/Newsletter'
 import FilterProduct from '../../components/FilterProduct/FilterProduct'
 import useFetchByCategory from '../../hooks/useFetchByCategory'
-import imageBanner from '../../assets/bannerShop.svg'
+import imageBanner from '../../assets/bannerShop.png'
 import toolbar2x2 from '../../assets/toolbar2x2.svg'
 import toolbar3x3 from '../../assets/toolbar3x3.svg'
 import styles from './Shop.module.scss'
 const Shop = () => {
   const { category } = useLoaderData()
-  const { data, handleChange, categories } = useFetchByCategory('http://localhost:1337/api/products')
+  const { data, handleChange } = useFetchByCategory('http://localhost:1337/api/products')
   const [sortGrid, setSortGrid] = useState({
     grid: {
       cols: 3,

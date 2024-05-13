@@ -1,0 +1,22 @@
+form {
+  display: grid;
+  gap: 2rem;
+  select {
+    padding: 1.5rem 1.6rem;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    color: var(--gray-color-1);
+  }
+  label {
+    padding: 2rem 0.5rem;
+    color: var(--primary-color);
+  }
+}
+.checkout-col {
+  display: grid;
+
+  gap: 2rem;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

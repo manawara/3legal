@@ -1,13 +1,19 @@
-import React from 'react'
-import { Link, json, redirect, useActionData, useSearchParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, json, redirect, useActionData, useNavigate, useRouteLoaderData, useSearchParams } from 'react-router-dom'
 import logo from '../../assets/chair_2.jpeg'
 import styles from './AuthPage.module.scss'
 import AuthForm from '../../components/Auth/AuthForm'
-const SignUp = () => {
+import { storeUser } from '../../helpers'
+
+const AuthPage = () => {
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const isLogin = searchParams.get('mode') === 'login'
   const data = useActionData()
-
+  const authToken = useRouteLoaderData('root')
+  useEffect(() => {
+    if (authToken) return navigate('/')
+  }, [authToken, navigate])
   return (
     <div className={styles.auth}>
       <div className={styles['auth-header']}>
@@ -30,7 +36,7 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default AuthPage
 export async function action({ params, request }) {
   try {
     const data = await request.formData()
@@ -55,6 +61,7 @@ export async function action({ params, request }) {
         username: data.get('name'),
         email: data.get('email'),
         password: data.get('password'),
+        policy: data.get('policy') ? true : false,
       }
     }
 
@@ -76,9 +83,11 @@ export async function action({ params, request }) {
 
     const reqData = await response.json()
     const token = reqData.jwt
-    localStorage.setItem('token', token)
+    const userName = reqData.user.username
+    console.log(reqData)
+    storeUser({ token, username: userName })
   } catch (e) {
-    return { message: 'Auth failed!', status: 400 }
+    return { message: 'Auth failed! The data was entered incorrectly!', status: 400 }
   }
 
   return { message: 'Auth successful!' }
